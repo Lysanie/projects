@@ -44,8 +44,7 @@ public class SchoolCoursesApplicationTests {
         st.setLastName("Last Name");
         st.setEmail("t@t.com");
 
-        //studentRepository.insert(st);
-        MvcResult mvcResult = mockMvc.perform(post("/student/new")
+        MvcResult mvcResult = mockMvc.perform(post("/student")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(st)))
                 .andExpect(status().isOk())

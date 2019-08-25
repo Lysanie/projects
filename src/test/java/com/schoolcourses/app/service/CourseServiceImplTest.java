@@ -48,15 +48,14 @@ class CourseServiceImplTest {
      @Test
      @Tag("UnitTest")
      void findCourseById_shouldFinishWithSuccess(){
-        String courseId= "000111";
         Course course = new Course();
         course.setName("Test");
 
-        when(courseRepository.findById(anyString())).thenReturn(Optional.of(course));
+        when(courseRepository.findByName(anyString())).thenReturn(course);
 
-        assertThat(instance.findCourseById(courseId)).isSameAs(course);
+        assertThat(instance.findCourseById(course.getName())).isSameAs(course);
 
-        verify(courseRepository).findById(eq(courseId));
+        verify(courseRepository).findByName(eq(course.getName()));
     }
 
     @Test
